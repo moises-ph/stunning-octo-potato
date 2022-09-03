@@ -3,6 +3,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 require('dotenv').config();
 
+const mongoose = require('./database/database');
+
 const app = express();
 const PORT = process.env.PORT;
 
