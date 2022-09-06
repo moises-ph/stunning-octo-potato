@@ -9,6 +9,7 @@ function Dashboard() {
       <nav>
         <NavLink to='/account/peliculas' >Peliculas</NavLink>
         <NavLink to='/account/series' >Series</NavLink>
+        <NavLink to='/account/libros' >Libros</NavLink>
       </nav>
     </>
   );

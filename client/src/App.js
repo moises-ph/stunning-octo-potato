@@ -5,6 +5,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import EliminarCuenta from "./components/EliminarCuenta";
 import Peliculas from "./components/dashboard/Peliculas";
 import Tv from "./components/dashboard/Tv";
+import Libros from './components/dashboard/Libros'
 import Error404 from "./components/Error404";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
           <Route path="/account" element={<Dashboard />}></Route>
           <Route path="/account/peliculas" element={<Peliculas />}></Route>
           <Route path="/account/series" element={<Tv />}></Route>
+          <Route path="/account/libros" element={<Libros />}></Route>
           <Route path="/eracc" element={<EliminarCuenta />}></Route>
           <Route path="*" element={<Error404 />}></Route>
         </Routes>
