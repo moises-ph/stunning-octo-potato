@@ -3,7 +3,7 @@ import axios from 'axios'
 
 function Libros() {
   useEffect(()=>{
-    axios.get('https://www.googleapis.com/books/v1/volumes/s1gVAAAAYAAJ').then(res=>{
+    axios.get('https://www.etnassoft.com/api/v1/get/?category=libros_programacion&criteria=most_viewed').then(res=>{
       console.log(res);
     })
   }, [])
