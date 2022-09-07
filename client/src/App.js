@@ -7,7 +7,6 @@ import Peliculas from "./components/dashboard/Peliculas";
 import Tv from "./components/dashboard/Tv";
 import Libros from './components/dashboard/Libros'
 import Error404 from "./components/Error404";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
