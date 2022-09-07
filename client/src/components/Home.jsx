@@ -3,14 +3,15 @@ import "../styles/home.css";
 import { NavLink } from "react-router-dom";
 import Nav from "./Nav";
 
+
 function Home() {
   return (
     <>
       <Nav />
       <main>
-        <h3></h3>
+        <h3>¿Que trata?</h3>
         <section>
-          <p></p>
+          <p>Es una pagina creada para poder consultar la informacion de tus peliculas, series y libros favoritos</p>
         </section>
         <section>{/*imagenes*/}</section>
       </main>

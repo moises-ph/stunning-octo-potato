@@ -1,11 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Logo from "../imagenes/logo.jfif"
 
 function Nav() {
   return (
     <>
       <nav>
-        <p>logo</p>
+        <img src={Logo} alt="" />
         <h1 className="title">Express Entertainment</h1>
         <div className="links">
           <NavLink to='/'>Home</NavLink>
