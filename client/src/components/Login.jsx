@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
-import '../styles/login.css'
+import styles from '../styles/login.module.css'
 
 function Login() {
   return (

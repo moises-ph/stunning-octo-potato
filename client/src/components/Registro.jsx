@@ -1,13 +1,13 @@
 import React from "react";
 import Nav from "./Nav";
-import '../styles/register.module.css'
+import styles from '../styles/register.module.css'
 
 function Registro() {
   return (
     <>
       <Nav />
       <form>
-        <h1>Registro</h1>
+        <h1 className={styles.title}>Registro</h1>
         <input type="text" placeholder="Nombre" />
         <input type="text" placeholder="Apellido" />
         <input type="number" placeholder="Edad" />
