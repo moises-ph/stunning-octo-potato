@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Peliculas() {
+  const [type, setType] = useState("popular");
   const [movie, setMovie] = useState(<></>);
   const [index, setIndex] = useState(1);
   const theMovie = (prop) => {
@@ -28,16 +29,24 @@ function Peliculas() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=5433a58ed58a7253f675b66bb885524d&language=en-US&page=${index}`
+        `https://api.themoviedb.org/3/movie/${type}?api_key=5433a58ed58a7253f675b66bb885524d&language=en-US&page=${index}`
       )
       .then((res) => {
         console.log(res);
         theMovie(res);
       });
-  }, [index]);
+  }, [index, type]);
   return (
     <>
       <h1>Peliculas</h1>
+      <nav>
+        <button onClick={() => setType("popular")}>Populares</button>
+        <button onClick={() => setType("top_rated")}>Mejores Ranqueadas</button>
+        <button onClick={() => setType("upcoming")}>
+          Proximas a estrenarse
+        </button>
+      </nav>
+
       <button
         onClick={() => {
           setIndex(1);
