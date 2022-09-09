@@ -1,0 +1,14 @@
+.body{ 
+  background-color: #222;
+  color: #ddd;
+}
+
+.none{
+  visibility: hidden;
+}
+
+@media screen and (orientation: portrait){
+  .img{
+    width: 100vw;
+  }
+}
