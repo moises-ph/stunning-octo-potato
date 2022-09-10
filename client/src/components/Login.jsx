@@ -1,16 +1,26 @@
 import React from "react";
 import Nav from "./Nav";
-import styles from '../styles/login.module.css'
+import styles from "../styles/login.module.css";
 
 function Login() {
   return (
     <>
       <Nav />
-      <form className={styles.body}>
+      <div className={styles.body}>
         <h1 className={styles.title}>Login</h1>
-        <input type="text" placeholder="Correo Eletronico" />
-        <input type="text" placeholder="Contraseña" />
-      </form>
+        <form className={styles.form}>
+          <input
+            type="text"
+            className={styles.input1}
+            placeholder="Correo Eletronico"
+          />
+          <input
+            type="text"
+            className={styles.input1}
+            placeholder="Contraseña"
+          />
+        </form>
+      </div>
     </>
   );
 }

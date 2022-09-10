@@ -1,20 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
-  font-family: 'DynaPuff', cursive;  
+  font-family: 'DynaPuff', cursive;
 }
+
 .title {
   color: red;
 }
-.body{ 
-  background-color: #222;
+
+.body {
+  background-color: #111;
   color: #ddd;
-  width: 100vw;
-  height: 90vh; 
+  width: 98.75vw;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: start;
+  padding-top: 2%;
+  gap: 10%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 60%;
+  background-color: #222;
+  gap: 8%;
+  padding-top: 2%;
+  border-top: 5px solid #36f;
+}
+
+.input1 {
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #666;
+  outline: none;
+  width: 70%;
+  color: #ddd;
+}
+
+.input1:focus {
+  transition: 300ms;
+  border-bottom: 2px solid #eee;
 }
