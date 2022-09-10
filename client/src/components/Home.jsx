@@ -27,11 +27,6 @@ function Home() {
           }
         />
         <h3>{res.data.title}</h3>
-        <p>
-          {res.data.overview.length > 0
-            ? res.data.overview
-            : "no hay descripcion disponible"}
-        </p>
       </div>
     );
   };
@@ -48,9 +43,11 @@ function Home() {
   return (
     <>
       <div className={style.body}>
-        <Nav />
+        <header>
+          <Nav />
+        </header>
         <h1 className={style.title}>Express Entertainment</h1>
-        <main>
+        <main className={style.main}>
           <h3>¿Que trata?</h3>
           <section>
             <p>
@@ -62,13 +59,13 @@ function Home() {
             <h2>Lo mas nuevo</h2>
             <div>{movies}</div>
           </section>
-          <section>
+          <section className={style.topRated}>
             <h2>Mejor rankeadas</h2>
             <TopRated />
           </section>
           <section></section>
         </main>
-        <footer>
+        <footer className={style.footer}>
           <a
             href="https://github.com/moises-ph/stunning-octo-potato"
             target="_blank"
