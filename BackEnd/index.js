@@ -3,7 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 require('dotenv').config();
 
-const mongoose = require('./database/database');
+const {mongoose} = require('./database');
 
 const app = express();
 const PORT = process.env.PORT;
@@ -13,7 +13,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
 
+const {RegisterRouter} = require('./routers');
 
+
+app.use('/register', RegisterRouter);
 
 
 
