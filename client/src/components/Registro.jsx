@@ -6,14 +6,14 @@ function Registro() {
   return (
     <>
       <Nav />
-      <form>
+      <form className={styles.body}>
         <h1 className={styles.title}>Registro</h1>
-        <input type="text" placeholder="Nombre" />
-        <input type="text" placeholder="Apellido" />
-        <input type="number" placeholder="Edad" />
-        <input type="text" placeholder="Correo Electronico" />
-        <input type="text" placeholder="Contraseña" />
-        <input type="text" placeholder="Confirmar Contraseña" />
+        <input className={styles.input1} type="text" placeholder="Nombre" />
+        <input className={styles.input1} type="text" placeholder="Apellido" />
+        <input className={styles.input1} type="number" placeholder="Edad" />
+        <input className={styles.input1} type="text" placeholder="Correo Electronico" />
+        <input className={styles.input1} type="text" placeholder="Contraseña" />
+        <input className={styles.input1} type="text" placeholder="Confirmar Contraseña" />
       </form>
     </>
   );

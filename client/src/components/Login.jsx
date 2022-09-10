@@ -6,8 +6,8 @@ function Login() {
   return (
     <>
       <Nav />
-      <form>
-        <h1>Login</h1>
+      <form className={styles.body}>
+        <h1 className={styles.title}>Login</h1>
         <input type="text" placeholder="Correo Eletronico" />
         <input type="text" placeholder="Contraseña" />
       </form>
