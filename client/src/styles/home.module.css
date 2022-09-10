@@ -1,14 +1,39 @@
-.body{ 
+.body {
   background-color: #222;
   color: #ddd;
+  display: flex;
+  height: 485vh;
+  flex-direction: column;
+
+  box-sizing: content-box;
 }
 
-.none{
+.movieContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.none {
   visibility: hidden;
 }
 
-@media screen and (orientation: portrait){
-  .img{
+.main {
+  margin-bottom: 50%;
+}
+
+.topRated {
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+@media screen and (orientation: portrait) {
+  .img {
     width: 100vw;
   }
 }
