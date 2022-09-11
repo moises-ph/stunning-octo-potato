@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import style from "../../styles/peliculas.module.css";
 import axios from "axios";
 
 function Peliculas() {
@@ -10,16 +11,16 @@ function Peliculas() {
     setMovie(
       results.map((res, id) => {
         return (
-          <div key={id}>
+          <div className={style.movie} key={id}>
             <h3>{res.title}</h3>
             <img
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${res.backdrop_path}`}
             />
-            <p>
+            {/*<p>
               {res.overview.length > 0
                 ? res.overview
                 : "no description aviable"}
-            </p>
+            </p>*/}
           </div>
         );
       })
@@ -38,44 +39,48 @@ function Peliculas() {
   }, [index, type]);
   return (
     <>
-      <h1>Peliculas</h1>
-      <nav>
-        <button onClick={() => setType("popular")}>Populares</button>
-        <button onClick={() => setType("top_rated")}>Mejores Ranqueadas</button>
-        <button onClick={() => setType("upcoming")}>
-          Proximas a estrenarse
-        </button>
-      </nav>
+      <div className={style.body}>
+        <h1>Peliculas</h1>
+        <nav>
+          <button onClick={() => setType("popular")}>Populares</button>
+          <button onClick={() => setType("top_rated")}>
+            Mejores Ranqueadas
+          </button>
+          <button onClick={() => setType("upcoming")}>
+            Proximas a estrenarse
+          </button>
+        </nav>
 
-      <button
-        onClick={() => {
-          setIndex(1);
-        }}
-      >
-        Inicio
-      </button>
-      <button
-        onClick={() => {
-          setIndex(index > 1 ? index - 1 : index);
-        }}
-      >
-        Anteriores
-      </button>
-      <button
-        onClick={() => {
-          setIndex(index < 500 ? index + 1 : index);
-        }}
-      >
-        Siguientes
-      </button>
-      <button
-        onClick={() => {
-          setIndex(500);
-        }}
-      >
-        Final
-      </button>
-      <div>{movie}</div>
+        <button
+          onClick={() => {
+            setIndex(1);
+          }}
+        >
+          Inicio
+        </button>
+        <button
+          onClick={() => {
+            setIndex(index > 1 ? index - 1 : index);
+          }}
+        >
+          Anteriores
+        </button>
+        <button
+          onClick={() => {
+            setIndex(index < 500 ? index + 1 : index);
+          }}
+        >
+          Siguientes
+        </button>
+        <button
+          onClick={() => {
+            setIndex(500);
+          }}
+        >
+          Final
+        </button>
+        <div className={style.movies}>{movie}</div>
+      </div>
     </>
   );
 }
