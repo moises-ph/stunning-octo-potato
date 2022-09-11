@@ -12,8 +12,11 @@ function Peliculas() {
       results.map((res, id) => {
         return (
           <div className={style.movie} key={id}>
-            <h3>{res.title}</h3>
+            <div className={style.contTitle}>
+              <h3 className={style.title}>{res.title}</h3>
+            </div>
             <img
+              className={style.img}
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${res.backdrop_path}`}
             />
             {/*<p>
@@ -40,46 +43,108 @@ function Peliculas() {
   return (
     <>
       <div className={style.body}>
-        <h1>Peliculas</h1>
-        <nav>
-          <button onClick={() => setType("popular")}>Populares</button>
-          <button onClick={() => setType("top_rated")}>
-            Mejores Ranqueadas
-          </button>
-          <button onClick={() => setType("upcoming")}>
-            Proximas a estrenarse
-          </button>
+        <nav className={style.nav}>
+          <h1>Peliculas</h1>
+          <div className={style.nbotones}>
+            <button
+              className={style.sbutton}
+              onClick={() => setType("popular")}
+            >
+              Populares
+            </button>
+            <button
+              className={style.sbutton}
+              onClick={() => setType("top_rated")}
+            >
+              Mejores Ranqueadas
+            </button>
+            <button
+              className={style.sbutton}
+              onClick={() => setType("upcoming")}
+            >
+              Proximas a estrenarse
+            </button>
+          </div>
         </nav>
 
-        <button
-          onClick={() => {
-            setIndex(1);
-          }}
-        >
-          Inicio
-        </button>
-        <button
-          onClick={() => {
-            setIndex(index > 1 ? index - 1 : index);
-          }}
-        >
-          Anteriores
-        </button>
-        <button
-          onClick={() => {
-            setIndex(index < 500 ? index + 1 : index);
-          }}
-        >
-          Siguientes
-        </button>
-        <button
-          onClick={() => {
-            setIndex(500);
-          }}
-        >
-          Final
-        </button>
+        <div className={style.buttons}>
+          <div className={style.menos}>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(1);
+              }}
+            >
+              Inicio
+            </button>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(index > 1 ? index - 1 : index);
+              }}
+            >
+              Anteriores
+            </button>
+          </div>
+          <div className={style.mas}>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(index < 500 ? index + 1 : index);
+              }}
+            >
+              Siguientes
+            </button>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(500);
+              }}
+            >
+              Final
+            </button>
+          </div>
+        </div>
         <div className={style.movies}>{movie}</div>
+
+        <div className={style.buttons}>
+          <div className={style.menos}>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(1);
+              }}
+            >
+              Inicio
+            </button>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(index > 1 ? index - 1 : index);
+              }}
+            >
+              Anteriores
+            </button>
+          </div>
+          <div className={style.mas}>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(index < 500 ? index + 1 : index);
+              }}
+            >
+              Siguientes
+            </button>
+            <button
+              className={style.boton}
+              onClick={() => {
+                setIndex(500);
+              }}
+            >
+              Final
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
