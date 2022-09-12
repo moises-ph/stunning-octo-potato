@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { NavLink } from 'react-router-dom'
 import style from '../../styles/tv.module.css'
 import axios from "axios";
 
@@ -11,7 +12,7 @@ function Tv() {
     setMovie(
       results.map((res, id) => {
         return (
-          <div className={style.movie} key={id}>
+          <NavLink to={`/account/series/${res.id}`} className={style.movie} key={id}>
             <div className={style.contTitle}>
               <h3 className={style.title}>{res.name}</h3>
             </div>
@@ -24,7 +25,7 @@ function Tv() {
                 ? res.overview
                 : "no description aviable"}
             </p>*/}
-          </div>
+          </NavLink>
         );
       })
     );
