@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
+import style from "../../styles/serie.module.css";
 
 function Serie() {
   const [content, setContent] = useState();
@@ -8,21 +9,23 @@ function Serie() {
   const settingContent = (res) => {
     const data = res.data;
     setContent(
-      <div>
-        <h1>{data.name}</h1>
-        <span>Fecha de salida: {data.first_air_date}</span>
-        <img 
+      <div className={style.movieContainer}>
+        <h1 className={style.title}>{data.name}</h1>
+        <img
           src={`https://www.themoviedb.org/t/p/w220_and_h330_face${data.backdrop_path}`}
         />
-        <p>
-          Proximo episodio: {data.next_episode_to_air.name}. Sale el{" "}
-          {data.next_episode_to_air.air_date}
-        </p>
-        <h3>Temporada: {data.number_of_seasons}</h3>
-        <h4>Description:</h4>
-        <p>{data.overview}</p>
-        <p>{data.tagline}</p>
-        <a href={data.homepage} target="_blank">
+        <div className={style.info}>
+          <p>Fecha de salida: {data.first_air_date}</p>
+          <p>
+            Proximo episodio: {data.next_episode_to_air.name}. Sale el{" "}
+            {data.next_episode_to_air.air_date}
+          </p>
+          <h3>Temporada: {data.number_of_seasons}</h3>
+          <h4>Description:</h4>
+          <p>{data.overview}</p>
+          <p>{data.tagline}</p>
+        </div>
+        <a href={data.homepage} className={style.link} target="_blank">
           Donde ver
         </a>
       </div>
@@ -44,11 +47,13 @@ function Serie() {
 
   return (
     <>
-      <div>
-        <div>
-          <NavLink to="/account/series/">Volver</NavLink>
+      <div className={style.body}>
+        <div className={style.container}>
+          <NavLink to="/account/series/" className={style.link}>
+            Volver
+          </NavLink>
         </div>
-        <div>{content}</div>
+        <div className={style.cont}>{content}</div>
       </div>
     </>
   );

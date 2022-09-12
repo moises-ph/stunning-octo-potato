@@ -2,8 +2,6 @@
   background-color: #222;
   color: #ddd;
   height: 600vh;
-  perspective: 1000px;
-  transform-style: preserve-3d;
 }
 
 
