@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "../../styles/peliculas.module.css";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 function Peliculas() {
   const [type, setType] = useState("popular");
@@ -11,7 +12,7 @@ function Peliculas() {
     setMovie(
       results.map((res, id) => {
         return (
-          <div className={style.movie} key={id}>
+          <NavLink to={`/account/peliculas/${res.id}`} className={style.movie} key={id}>
             <div className={style.contTitle}>
               <h3 className={style.title}>{res.title}</h3>
             </div>
@@ -24,7 +25,7 @@ function Peliculas() {
                 ? res.overview
                 : "no description aviable"}
             </p>*/}
-          </div>
+          </NavLink>
         );
       })
     );

@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import EliminarCuenta from "./components/EliminarCuenta";
 import Peliculas from "./components/dashboard/Peliculas";
+import Pelicula from "./components/dashboard/Pelicula";
 import Tv from "./components/dashboard/Tv";
 import Serie from './components/dashboard/Serie'
 import Libros from './components/dashboard/Libros'
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/account" element={<Dashboard />}></Route>
           <Route path="/account/peliculas" element={<Peliculas />}></Route>
+          <Route path="/account/peliculas/:id" element={<Pelicula />}></Route>
           <Route path="/account/series" element={<Tv />}></Route>
           <Route path="/account/series/:id" element={<Serie />}></Route>
           <Route path="/account/libros" element={<Libros />}></Route>

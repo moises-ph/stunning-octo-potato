@@ -45,7 +45,7 @@ function Tv() {
     <>
       <div className={style.body}>
         <nav className={style.nav}>
-          <h1>Peliculas</h1>
+          <h1>Series</h1>
           <div className={style.nbotones}>
             <button
               className={style.sbutton}
