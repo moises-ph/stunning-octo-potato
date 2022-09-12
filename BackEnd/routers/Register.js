@@ -1,50 +1,42 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
-const validator = require('express-validator');
+const joi = require('joi');
 
-const { UserSchema } = require('../models');
+const { UserSchema }  = require('../models')
 
 const router = express.Router();
 
+const registerValidator = joi.object({
+  email: joi.string().email().required(),
+  password: joi.string().min(6).required(),
+  name: joi.string().required(),
+  gender: joi.string().required(),
+  nationality: joi.string().required(),
+  DateOfBirth: joi.string().required(),
+});
 
-router.post('/', [
-  check("email")
-    .isEmail()
-    .withMessage("Invalid email address provided")
-    .trim()
-    .bail(),
-  check("password")
-    .isLength({min:6})
-    
-] ,async (req , res)=>{
-  const { error } = await registerValidator.validateAsync(req.body);
-  if(error) return res.status(400).send(error.details[0].message);
-
-  const { email, password, name, lastname, gender, nationality, DateOfBirth} = req.body;
-
-  const emailExists = UserSchema.findOne({email: email}); 
-  if(emailExists) return res.status(400).json({message: "email already exists"});
-
+router.post('/', (req , res, next)=>{
+  const { error } = registerValidator.validate(req.body);
+  error ? res.status(400).send(error.details[0].message) : next() 
+}, async (req, res, next)=>{
+  const { email, password, name, gender, nationality, DateOfBirth } = req.body;
   try{
 
-    const passHash = await bcrypt.hash(password, 10);
+    const userExists = await UserSchema.findOne({email: email});
+    if(userExists) {
+      res.status(400).json({message: "Usuario ya existe"})
+    }
+    else{
+      const passCrypt = await bcrypt.hash(password, 10);
 
-    const newUser = new UserSchema({
-      email,
-      passHash,
-      name,
-      lastname,
-      gender,
-      nationality,
-      DateOfBirth
-    });
-    await newUser.save();
+      const newUser = new UserSchema({email,password: passCrypt, name, gender, nationality, DateOfBirth});
 
-    res.status(200).json({success: true, message: "user saved successfully"});
-
+      await newUser.save();
+      res.status(200).json({message: "Usuario creado exitosamente"});
+    }
   }
-  catch(err){
-    res.status(400).json({error: err.message});
+  catch(Err){
+    res.status(400).json({error: Err.message});
   }
 });
 
