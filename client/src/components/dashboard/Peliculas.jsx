@@ -7,6 +7,7 @@ function Peliculas() {
   const [type, setType] = useState("popular");
   const [movie, setMovie] = useState(<></>);
   const [index, setIndex] = useState(1);
+  const [datos, setDatos] = useState(<></>);
   const theMovie = (prop) => {
     const results = prop.data.results;
     setMovie(
@@ -31,6 +32,14 @@ function Peliculas() {
     );
   };
 
+  const theData = (props) => {
+    setDatos(
+      props.data.results.map((dat, index)=>{
+        return <option value={`${dat.title}`} key={index}></option>
+      })
+    )
+  }
+
   useEffect(() => {
     axios
       .get(
@@ -39,13 +48,19 @@ function Peliculas() {
       .then((res) => {
         console.log(res);
         theMovie(res);
-      });
+        theData(res)
+      })
+      .catch((err)=>console.log(err))
   }, [index, type]);
   return (
     <>
       <div className={style.body}>
         <nav className={style.nav}>
           <h1>Peliculas</h1>
+          <input type="text" list="peliculas"/>
+          <datalist id="peliculas">
+              {datos}
+          </datalist>
           <div className={style.nbotones}>
             <button
               className={style.sbutton}
