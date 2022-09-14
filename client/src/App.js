@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import Context from "./components/context/Context";
+import { ContextLogin } from "./components/context/Context";
 import Home from "./components/Home";
 import Registro from "./components/Registro";
 import Login from "./components/Login";
@@ -10,9 +12,11 @@ import Tv from "./components/dashboard/Tv";
 import Serie from "./components/dashboard/Serie";
 import Libros from "./components/dashboard/Libros";
 import Error404 from "./components/Error404";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
+  const { token } = useContext(ContextLogin);
+
   return (
     <>
       <BrowserRouter>
