@@ -45,6 +45,7 @@ function Login() {
       })
       .then((res) => {
         setToken(res.data.token)
+        window.localStorage.setItem("token", res.data.token)
         ani("usuario logueado exitosamente", "success")
         redirect();
       })
