@@ -11,6 +11,7 @@ import Serie from "./components/dashboard/Serie";
 import Libros from "./components/dashboard/Libros";
 import Error404 from "./components/Error404";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import LibrosSubject from "./components/dashboard/LibrosSubject";
 
 function App() {
   let token = window.localStorage.getItem("token")
@@ -28,6 +29,7 @@ function App() {
             <Route path="/account/series" element={token ? <Tv /> : <Navigate to="/" />}></Route>
             <Route path="/account/series/:id" element={token ? <Serie /> : <Navigate to="/" />}></Route>
             <Route path="/account/libros" element={token ? <Libros /> : <Navigate to="/" />}></Route>
+            <Route path="/account/libros/subject" element={token ? <LibrosSubject /> : <Navigate to="/" />}></Route>
             <Route path="/eracc" element={<EliminarCuenta />}></Route>
             <Route path="*" element={<Error404 />}></Route>
           </Routes>

@@ -1,27 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
-function Libros() {
+function LibrosSubject() {
   const [content, setContent] = useState();
   const [typeQuery, setTypeQuery] = useState("q");
-  const [query, setQuery] = useState("the+lord+of+the+rings");
+  const [subject, setSubject] = useState("love");
   const book = useRef();
 
-  const theQuery = () => {
-    setQuery(book.current.value.split(" ").join("+"));
+  const theSubject = () => {
+    setSubject(book.current.value.split(" ").join("+"));
   };
 
   const theContent = (props) => {
-    if (props.data.numFound !== 0) {
+    if (props.data.work_count !== 0) {
       setContent(
-        props.data.docs.map((info, index) => {
+        props.data.works.map((info, index) => {
           return (
             <div key={index}>
               <h2>{info.title}</h2>
-              {/* <img src={`https://covers.openlibrary.org/b/isbn/${info.cover_edition_key}-S.jpg`} /> */}
+              
               <h3>
-                {info.author_name
-                  ? info.author_name.map((rs)=>{return `${rs}, `})
+                {info.authors
+                  ? info.authors.map((rs)=>{return rs.name})
                   : "no hay autor disponible"}
               </h3>
             </div>
@@ -35,17 +35,17 @@ function Libros() {
 
   useEffect(() => {
     axios
-      .get(`http://openlibrary.org/search.json?${typeQuery}=${query}`)
+      .get(`http://openlibrary.org/subjects/${subject}.json?details=true?limit=50`)
       .then((res) => {
         console.log(res);
         theContent(res);
       })
       .then();
-  }, [query, typeQuery]);
+  }, [subject]);
   return (
     <>
       <input type="text" ref={book} />
-      <button onClick={theQuery}>Buscar</button>
+      <button onClick={theSubject}>Buscar</button>
       <p>cambiar tipo de busqueda tipo de busqueda</p>
       <button onClick={() => setTypeQuery("title")}>por titulo</button>
       <button onClick={() => setTypeQuery("author")}>por autor</button>
@@ -54,4 +54,4 @@ function Libros() {
   );
 }
 
-export default Libros;
+export default LibrosSubject;
