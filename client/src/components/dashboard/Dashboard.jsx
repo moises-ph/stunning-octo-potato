@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Peliculas from "./Peliculas";
+import style  from "../../styles/dashboard.module.css"
 import { NavLink } from "react-router-dom";
 
 function Dashboard() {
