@@ -1,7 +1,7 @@
 .body {
   background-color: #222;
   color: #ddd;
-  height: 600vh;
+  height: 408vh
 }
 
 
@@ -10,6 +10,7 @@
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   place-items: center;
+  background-color: #222;
   padding: 15px;
 }
 
@@ -26,11 +27,15 @@
   transition: all 300ms ease;
 }
 
-.buttons {
+.buttons{
   margin-top: 30px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.buttons:nth-child(2){
+  margin-top: 0;
 }
 
 .menos {
