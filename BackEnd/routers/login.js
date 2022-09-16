@@ -31,7 +31,7 @@ router.post('/', (req, res, next)=>{
         res.status(400).json({error: "Contraseña incorrecta"});
       }
       else{
-        const token = jwt.sign({email}, process.env.SECRET);
+        const token = jwt.sign({email, id: userExists._id}, process.env.SECRET);
         res.status(200).json({token, message: "Usuario loegado exitosamente"});
       }
     }
