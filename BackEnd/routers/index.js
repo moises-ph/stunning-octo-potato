@@ -1,8 +1,12 @@
 const RegisterRouter = require('./Register');
-const LoginRouter = require('./login')
+const LoginRouter = require('./login');
+const validateToken = require('./validateToken');
+const Favorite = require('./Favoritos');
 
 
 module.exports = {
   RegisterRouter,
-  LoginRouter
+  LoginRouter,
+  validateToken,
+  Favorite
 };

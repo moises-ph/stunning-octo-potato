@@ -13,11 +13,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan('dev'));
 
-const {RegisterRouter, LoginRouter} = require('./routers');
+const {RegisterRouter, LoginRouter, validateToken, Favorite} = require('./routers');
 
 
 app.use('/register', RegisterRouter);
 app.use('/login', LoginRouter);
+app.use('/saveFav', validateToken, Favorite);
 
 
 

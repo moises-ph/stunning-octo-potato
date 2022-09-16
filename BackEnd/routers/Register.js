@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const joi = require('joi');
+const jwt = require('jsonwebtoken');
 
 const { UserSchema }  = require('../models')
 
@@ -12,7 +13,7 @@ const registerValidator = joi.object({
   name: joi.string().required(),
   gender: joi.string().required(),
   nationality: joi.string().required(),
-  DateOfBirth: joi.string().required(),
+  DateOfBirth: joi.string().required()
 });
 
 router.post('/', (req , res, next)=>{

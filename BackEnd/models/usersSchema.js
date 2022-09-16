@@ -9,17 +9,16 @@ const User = new Schema({
   DateOfBirth: {type:String,required:true}
 });
 const Favorites = new Schema({
+  user:{ type:Schema.ObjectId,ref:'User'},
   Peliculas: [{
     Title: {type:String,required:true},
     Description: {type:String,required:true},
-    Favid: {type:String,required:true},
-    name:{ type:Schema.ObjectId,ref:'User'}
+    Favid: {type:String,required:true}
   }],
   Libros: [{
     Title: {type:String,required:true},
     Description: {type:String,required:true},
-    Favid: {type:String,required:true},
-    name:{ type:Schema.ObjectId,ref:'User'}
+    Favid: {type:String,required:true}
   }]
 });
 const UserSchema= model('User',User);
