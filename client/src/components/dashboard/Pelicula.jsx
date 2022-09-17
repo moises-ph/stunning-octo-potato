@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import style from "../../styles/pelicula.module.css";
+import DashNav from "./DashNav";
 
 function Pelicula() {
   const [content, setContent] = useState();
@@ -16,9 +17,7 @@ function Pelicula() {
         />
         <div className={style.info}>
           <p>Fecha de salida: {data.release_date}</p>
-          <h3>
-            Presupuesto: {data.budget}
-          </h3>
+          <h3>Presupuesto: {data.budget}</h3>
           <p>Ganancia: {data.reveneu}</p>
           <h4>Description:</h4>
           <p>{data.overview}</p>
@@ -46,6 +45,7 @@ function Pelicula() {
 
   return (
     <>
+      <DashNav />
       <div className={style.body}>
         <div className={style.container}>
           <NavLink to="/account/peliculas/" className={style.link}>

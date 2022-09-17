@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import style from "../../styles/peliculas.module.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import DashNav from "./DashNav";
 
 function Peliculas() {
   const [type, setType] = useState("popular");
@@ -54,13 +55,14 @@ function Peliculas() {
   }, [index, type]);
   return (
     <>
+      <DashNav />
       <div className={style.body}>
         <nav className={style.nav}>
           <h1>Peliculas</h1>
-          <input type="text" list="peliculas"/>
+          {/* <input type="text" list="peliculas"/>
           <datalist id="peliculas">
               {datos}
-          </datalist>
+          </datalist> */}
           <div className={style.nbotones}>
             <button
               className={style.sbutton}
