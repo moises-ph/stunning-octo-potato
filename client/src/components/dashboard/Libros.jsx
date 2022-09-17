@@ -19,7 +19,7 @@ function Libros() {
       setContent(
         props.data.docs.map((info, index) => {
           return (
-            <div key={index}>
+            <div key={index} className={style.book}>
               <h2>{info.title}</h2>
               <img src={cover} className={style.cover} alt="books cover" />
               <h3>
@@ -50,28 +50,21 @@ function Libros() {
   return (
     <>
       <DashNav />
+      <div className={style.body}>
       <main className={style.mainContainer}>
         <nav className={style.nav}>
           <div className={style.search}>
-            <input type="text" ref={book} />
-            <button onClick={theQuery}>Buscar</button>
+            <input type="text" ref={book} className={style.searching}/>
+            <button onClick={theQuery} className={style.boton}>Buscar</button>
           </div>
           <div className={style.searchType}>
             <p>cambiar tipo de busqueda tipo de busqueda</p>
-            <button onClick={() => setTypeQuery("title")}>por titulo</button>
-            <button onClick={() => setTypeQuery("author")}>por autor</button>
+            <button onClick={() => setTypeQuery("title")} className={style.boton}>por titulo</button>
+            <button onClick={() => setTypeQuery("author")} className={style.boton}>por autor</button>
           </div>
         </nav>
-        <div>{content}</div>
+        <div className={style.booksContent}>{content}</div>
       </main>
-
-      <div className={style.body}>
-        <input type="text" ref={book} />
-        <button onClick={theQuery}>Buscar</button>
-        <p>cambiar tipo de busqueda tipo de busqueda</p>
-        <button onClick={() => setTypeQuery("title")}>por titulo</button>
-        <button onClick={() => setTypeQuery("author")}>por autor</button>
-        <div className={style.books}>{content}</div>
       </div>
     </>
   );

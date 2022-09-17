@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import style from "../../styles/serie.module.css";
+import DashNav from "./DashNav";
 
 function Serie() {
   const [content, setContent] = useState();
@@ -47,6 +48,7 @@ function Serie() {
 
   return (
     <>
+      <DashNav />
       <div className={style.body}>
         <div className={style.container}>
           <NavLink to="/account/series/" className={style.link}>

@@ -1,30 +1,79 @@
-
 .nav {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 9vh;
+  
+}
+
+.mainContainer {
+  background-color: #222;
+  color: #ddd;
 }
 
 .search {
-
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
 }
 
 .searchType {
-    
+    display: flex;
+    justify-content: space-evenly;
+    width: 60%;
+}
+
+.searching {
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #666;
+  outline: none;
+  width: 70%;
+  color: #ddd;
+}
+
+.searching:focus {
+  transition: 300ms;
+  border-bottom: 2px solid #eee;
+}
+
+.booksContent {
+  background-color: #222;
+  color: #ddd;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  gap: 1%;
 }
 .body {
-    background-color: #222;
-    color: #ddd;
-    height: 100vh;
+  background-color: #222;
+  color: #ddd;
+  height: 650vh;
 }
 
 .books {
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
-    background-color: #222;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  background-color: #222;
 }
 
 .cover {
-    width: 25%;
-    height:50%
+  width: 25%;
+  height: 50%;
+}
 
+
+.boton  {
+    height: 40px;
+    width: 20%;
+    background-color: transparent;
+    color: #ddd;
+    border: none;
+    transition: all 300ms ease;
+}
+
+.boton:hover {
+    background-color: #ddd;
+    color: #222;
 }
