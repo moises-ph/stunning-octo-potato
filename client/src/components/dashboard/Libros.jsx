@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import style from "../../styles/libros.module.css";
 import DashNav from "./DashNav";
+import cover from "../../imagenes/book.png";
 import axios from "axios";
 
 function Libros() {
@@ -20,7 +21,7 @@ function Libros() {
           return (
             <div key={index}>
               <h2>{info.title}</h2>
-              {/* <img src={`https://covers.openlibrary.org/b/isbn/${info.cover_edition_key}-S.jpg`} /> */}
+              <img src={cover} className={style.cover} alt="books cover" />
               <h3>
                 {info.author_name
                   ? info.author_name.map((rs) => {
@@ -63,6 +64,15 @@ function Libros() {
         </nav>
         <div>{content}</div>
       </main>
+
+      <div className={style.body}>
+        <input type="text" ref={book} />
+        <button onClick={theQuery}>Buscar</button>
+        <p>cambiar tipo de busqueda tipo de busqueda</p>
+        <button onClick={() => setTypeQuery("title")}>por titulo</button>
+        <button onClick={() => setTypeQuery("author")}>por autor</button>
+        <div className={style.books}>{content}</div>
+      </div>
     </>
   );
 }

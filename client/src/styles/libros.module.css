@@ -1,3 +1,4 @@
+
 .nav {
     display: flex;
     justify-content: space-evenly;
@@ -9,4 +10,21 @@
 
 .searchType {
     
+}
+.body {
+    background-color: #222;
+    color: #ddd;
+    height: 100vh;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    background-color: #222;
+}
+
+.cover {
+    width: 25%;
+    height:50%
+
 }

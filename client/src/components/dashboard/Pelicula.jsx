@@ -1,5 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+// import default from "../../imagenes/default.png";
 import { NavLink, useParams } from "react-router-dom";
 import style from "../../styles/pelicula.module.css";
 import DashNav from "./DashNav";
@@ -13,7 +14,8 @@ function Pelicula() {
       <div className={style.movieContainer}>
         <h1 className={style.title}>{data.title}</h1>
         <img
-          src={`https://www.themoviedb.org/t/p/w220_and_h330_face${data.backdrop_path}`}
+          src={/*data.backdrop_path !== null ? default :*/ `https://www.themoviedb.org/t/p/w220_and_h330_face${data.backdrop_path}`}
+          alt="movie cover"
         />
         <div className={style.info}>
           <p>Fecha de salida: {data.release_date}</p>
@@ -23,9 +25,10 @@ function Pelicula() {
           <p>{data.overview}</p>
           <p>{data.tagline}</p>
         </div>
-        <a href={data.homepage} className={style.link} target="_blank">
+        <a href={data.homepage} className={style.link} target="_blank" rel="noreferrer">
           Donde ver
         </a>
+        <button>Agregar a favoritos</button>
       </div>
     );
   };

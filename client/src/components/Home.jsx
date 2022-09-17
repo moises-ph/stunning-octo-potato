@@ -15,7 +15,7 @@ function Home() {
 
   const theMovies = (res) => {
     setMovies(
-      <div
+      <NavLink to={`/account/peliculas/${res.data.id}`}
         className={res.data.adult === true ? style.none : style.movieContainer}
       >
         <img
@@ -25,9 +25,10 @@ function Home() {
               ? `https://www.themoviedb.org/t/p/w220_and_h330_face${res.data.poster_path}`
               : def
           }
+          alt="movies cover"
         />
         <h3>{res.data.title}</h3>
-      </div>
+      </NavLink>
     );
   };
   useEffect(() => {
@@ -68,21 +69,21 @@ function Home() {
         <footer className={style.footer}>
           <a
             href="https://github.com/moises-ph/stunning-octo-potato"
-            target="_blank"
+            target="_blank" rel="noreferrer"
           >
-            <img src={github} />
+            <img src={github} alt="github logo"/>
           </a>
-          <a href="" target="_blank">
-            <img src={facebook} />
+          <a href="www.facebokk.com" target="_blank" rel="noreferrer">
+            <img src={facebook} alt="facebook logo"/>
           </a>
           <a
             href="https://www.instagram.com/vitalysnowofficial/"
-            target="_blank"
+            target="_blank" rel="noreferrer"
           >
-            <img src={instagram} />
+            <img src={instagram} alt="instagram logo" />
           </a>
-          <a href="https://twitter.com/Vitalys_Now" target="_blank">
-            <img src={twitter} />
+          <a href="https://twitter.com/Vitalys_Now" target="_blank" rel="noreferrer">
+            <img src={twitter} alt="twitter logo"/>
           </a>
         </footer>
       </div>

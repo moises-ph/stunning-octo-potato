@@ -1,4 +1,5 @@
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import style from "../styles/topRated.module.css";
 
@@ -9,14 +10,15 @@ function TopRated() {
     setMovies(
       res.data.results.map((res, index) => {
         return (
-          <div key={index} className={style.movie}>
+          <NavLink to={`/account/peliculas/${res.id}`} 
+          key={index} className={style.movie}>
             <img
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${res.poster_path}`}
-              className={style.poster}
+              className={style.poster} alt="movie cover"
             />
             <h3 className={style.title}>{res.title}</h3>
             <span className={style.rate}>Rate: {res.vote_average}</span>
-          </div>
+          </NavLink>
         );
       })
     );

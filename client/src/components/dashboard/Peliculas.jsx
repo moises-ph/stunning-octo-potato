@@ -21,12 +21,8 @@ function Peliculas() {
             <img
               className={style.img}
               src={`https://www.themoviedb.org/t/p/w220_and_h330_face${res.backdrop_path}`}
+              alt="movies cover"
             />
-            {/*<p>
-              {res.overview.length > 0
-                ? res.overview
-                : "no description aviable"}
-            </p>*/}
           </NavLink>
         );
       })
